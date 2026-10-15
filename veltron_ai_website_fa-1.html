@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07090e">
+  <meta name="description" content="ولتـرون — فضای هوشمند شما برای نوشتن، یادگیری، برنامه‌نویسی و خلاقیت.">
+  <title>ولتـرون — فناوری هوشمند</title>
+  <style>
+    :root {
+      --bg:#07090e; --panel:#0d121c; --panel-2:#111a28; --text:#f4f7fb;
+      --muted:#9aa9bd; --blue:#8fc4ff; --blue-2:#4c91e8;
+      --border:rgba(160,190,225,.15); --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;color:var(--text);background:radial-gradient(ellipse at 50% -15%,rgba(55,111,181,.17),transparent 45%),var(--bg);
+      font-family:Tahoma,"Segoe UI",Arial,sans-serif;line-height:1.8
+    }
+    button,input,textarea,select{font:inherit}
+    button{cursor:pointer}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,calc(100% - 36px));margin-inline:auto}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid var(--border)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.08em}
+    .brand-mark{width:43px;height:43px;display:grid;place-items:center;border:1px solid rgba(143,196,255,.45);border-radius:13px;color:var(--blue);font-size:24px;font-weight:900;background:linear-gradient(145deg,#1b2c43,#090d14);box-shadow:0 0 28px rgba(76,145,232,.13)}
+    .brand small{display:block;font-size:9px;letter-spacing:.12em;color:var(--muted);font-weight:600}
+    .nav-links{display:flex;gap:22px;color:var(--muted);font-size:14px}
+    .nav-links a:hover{color:var(--blue)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .button{border:1px solid var(--border);border-radius:12px;padding:10px 15px;color:var(--text);background:rgba(255,255,255,.035);transition:.2s ease;display:inline-flex;justify-content:center;align-items:center;gap:8px}
+    .button:hover{transform:translateY(-1px);border-color:rgba(143,196,255,.5)}
+    .button.primary{background:linear-gradient(135deg,#a8d3ff,#5d9ee9);color:#07111e;border:0;font-weight:750}
+    .button.small{padding:8px 11px;font-size:13px}
+    .hero{padding:88px 0 68px;text-align:center}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--border);background:rgba(143,196,255,.06);color:var(--blue);border-radius:999px;padding:7px 13px;font-size:11px;font-weight:800;letter-spacing:.08em}
+    .dot{width:7px;height:7px;border-radius:50%;background:#77c4ff;box-shadow:0 0 12px #77c4ff}
+    h1{font-size:clamp(38px,7vw,72px);line-height:1.2;letter-spacing:-.04em;margin:24px 0 18px}
+    .gradient{color:var(--blue);background:linear-gradient(90deg,#e5f2ff,#75b7ff,#a8a7ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{color:var(--muted);max-width:660px;margin:0 auto;font-size:clamp(15px,2vw,18px)}
+    .hero-actions{margin-top:29px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .trust-note{margin-top:16px!important;font-size:12px!important}
+    .section{padding:35px 0 65px}
+    .section-heading{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:23px}
+    .section-heading h2{margin:0;font-size:clamp(25px,4vw,34px);letter-spacing:-.025em}
+    .section-heading p{margin:6px 0 0;color:var(--muted)}
+    .tool-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+    .tool-card{padding:21px;min-height:205px;text-align:right;border:1px solid var(--border);border-radius:var(--radius);background:linear-gradient(145deg,rgba(20,31,47,.92),rgba(10,14,22,.92));color:var(--text);transition:.22s ease;display:flex;flex-direction:column;align-items:flex-start}
+    .tool-card:hover,.tool-card.active{transform:translateY(-3px);border-color:rgba(143,196,255,.55);box-shadow:0 15px 45px rgba(0,0,0,.18)}
+    .tool-icon{width:47px;height:47px;display:grid;place-items:center;border-radius:14px;background:rgba(143,196,255,.1);font-size:23px;margin-bottom:18px}
+    .tool-card strong{font-size:17px}
+    .tool-card span.description{color:var(--muted);font-size:13px;margin-top:6px}
+    .tool-card .arrow{margin-top:auto;padding-top:18px;color:var(--blue);font-size:13px}
+    .workspace{border:1px solid var(--border);border-radius:24px;overflow:hidden;background:rgba(11,16,25,.9);box-shadow:0 25px 90px rgba(0,0,0,.25)}
+    .workspace-head{padding:17px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .workspace-title{display:flex;align-items:center;gap:11px;font-weight:750}
+    .workspace-title .mini-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:11px;background:rgba(143,196,255,.1)}
+    .workspace-title small{display:block;color:var(--muted);font-weight:400;font-size:12px}
+    .status{color:#83d7b0;font-size:12px;white-space:nowrap}
+    .workspace-body{padding:22px}
+    .field-label{display:block;color:#dce8f7;font-size:13px;margin-bottom:9px;font-weight:650}
+    textarea,select,input[type="text"]{width:100%;color:var(--text);background:#080d15;border:1px solid var(--border);border-radius:13px;padding:14px 15px;outline:none}
+    textarea{min-height:135px;resize:vertical}
+    textarea:focus,select:focus,input:focus{border-color:rgba(143,196,255,.65);box-shadow:0 0 0 3px rgba(143,196,255,.08)}
+    select{margin-top:12px} option{background:#0d121c}
+    .form-row{display:grid;grid-template-columns:1fr auto;gap:12px;margin-top:13px;align-items:center}
+    .hint{color:var(--muted);font-size:12px}
+    .result-wrap{margin-top:22px;border:1px solid var(--border);border-radius:16px;overflow:hidden;display:none}
+    .result-wrap.show{display:block}
+    .result-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 15px;background:rgba(143,196,255,.055);border-bottom:1px solid var(--border)}
+    .result-content{padding:18px;color:#d8e2f0;white-space:pre-wrap;overflow-wrap:anywhere;min-height:65px}
+    .notice{border:1px solid rgba(246,195,100,.2);background:rgba(246,195,100,.055);color:#d8c7a2;padding:12px 14px;border-radius:12px;font-size:12px;margin-top:16px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .step{padding:21px;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.018)}
+    .step-number{color:var(--blue);font-size:12px;letter-spacing:.1em;font-weight:800}
+    .step h3{margin:10px 0 7px}
+    .step p{color:var(--muted);margin:0;font-size:14px}
+    .cta{text-align:center;padding:45px 20px;border:1px solid var(--border);border-radius:24px;background:radial-gradient(ellipse at 50% 0%,rgba(76,145,232,.15),transparent 70%),#0b1018}
+    .cta h2{font-size:clamp(26px,4vw,40px);margin:0 0 12px}
+    .cta p{color:var(--muted);margin:0 auto 22px;max-width:570px}
+    footer{margin-top:65px;border-top:1px solid var(--border);padding:27px 0 22px;color:var(--muted);font-size:13px}
+    .footer-top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    .creator{color:#e5edf8;letter-spacing:0}
+    .footer-bottom{text-align:center;margin-top:23px;padding-top:17px;border-top:1px solid rgba(160,190,225,.08);font-size:12px}
+    .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#e8f3ff;color:#081321;padding:11px 16px;border-radius:12px;font-weight:700;font-size:13px;transition:.25s;z-index:10}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:850px){.tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-links{display:none}}
+    @media(max-width:560px){.container{width:min(100% - 24px,1120px)}.nav{padding:14px 0}.brand{letter-spacing:.04em}.brand-mark{width:39px;height:39px}.nav-actions .button:not(.primary){display:none}.hero{padding:65px 0 45px}.tool-grid,.steps{grid-template-columns:1fr}.tool-card{min-height:175px}.section-heading{align-items:flex-start;flex-direction:column}.workspace-body{padding:15px}.form-row{grid-template-columns:1fr}.form-row .button{width:100%}.status{display:none}}
+  </style>
+</head>
+<body>
+  <header class="container">
+    <nav class="nav" aria-label="ناوبری اصلی">
+      <a class="brand" href="#home" aria-label="صفحه اصلی ولترون">
+        <span class="brand-mark">V</span>
+        <span>VELTRON<small>فناوری هوشمند</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#tools">ابزارهای هوش مصنوعی</a>
+        <a href="#workspace">فضای کار</a>
+        <a href="#about">درباره ما</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button small" href="#tools">مشاهده ابزارها</a>
+        <a class="button primary small" href="#workspace">شروع کنید ↙</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="container hero">
+      <div class="eyebrow"><span class="dot"></span> آینده، هوشمند است</div>
+      <h1>یک پلتفرم.<br><span class="gradient">بی‌نهایت امکان.</span></h1>
+      <p>فضای کاری هوشمند شما برای نوشتن، یادگیری، برنامه‌نویسی و خلاقیت. ایده‌هایتان را با مجموعه‌ای هوشمند از ابزارهای دیجیتال به واقعیت تبدیل کنید.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#workspace">✦ ورود به فضای هوش مصنوعی</a>
+        <a class="button" href="#tools">دیدن امکانات ↓</a>
+      </div>
+      <p class="trust-note">فضایی ساده و متمرکز برای ایده بزرگ بعدی شما.</p>
+    </section>
+
+    <section class="container section" id="tools">
+      <div class="section-heading">
+        <div><h2>ابزارهایی برای ایده بعدی شما</h2><p>فضای موردنظرتان را انتخاب کنید و ایده‌ها را به نتیجه تبدیل کنید.</p></div>
+        <span class="eyebrow">برای خلاقیت ساخته شده</span>
+      </div>
+      <div class="tool-grid">
+        <button class="tool-card active" data-mode="assistant">
+          <span class="tool-icon">✦</span><strong>دستیار هوش مصنوعی</strong>
+          <span class="description">پرسش بپرسید، ایده‌پردازی کنید و موضوعات را بررسی کنید.</span><span class="arrow">رفتن به فضای کار ↙</span>
+        </button>
+        <button class="tool-card" data-mode="writer">
+          <span class="tool-icon">✎</span><strong>نویسنده هوشمند</strong>
+          <span class="description">متن بنویسید، بازنویسی کنید، خلاصه بگیرید و ویرایش کنید.</span><span class="arrow">رفتن به فضای کار ↙</span>
+        </button>
+        <button class="tool-card" data-mode="code">
+          <span class="tool-icon">&lt;/&gt;</span><strong>دستیار برنامه‌نویسی</strong>
+          <span class="description">کدها را بهتر بفهمید و پروژه بعدی‌تان را برنامه‌ریزی کنید.</span><span class="arrow">رفتن به فضای کار ↙</span>
+        </button>
+        <button class="tool-card" data-mode="ideas">
+          <span class="tool-icon">✧</span><strong>ایده‌پرداز هوشمند</strong>
+          <span class="description">نام، مفهوم و مسیرهای خلاقانه جدید پیدا کنید.</span><span class="arrow">رفتن به فضای کار ↙</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="container section" id="workspace">
+      <div class="section-heading"><div><h2>فضای کار هوشمند شما</h2><p>ابزار را انتخاب کنید، نیازتان را توضیح دهید و یک دستور آماده دریافت کنید.</p></div></div>
+      <div class="workspace">
+        <div class="workspace-head">
+          <div class="workspace-title"><span class="mini-icon">✦</span><span id="workspaceTitle">دستیار هوش مصنوعی<small id="workspaceSubtitle">همراه هوشمند شما برای کارهای گوناگون</small></span></div>
+          <span class="status">● نسخه نمایشی</span>
+        </div>
+        <div class="workspace-body">
+          <label class="field-label" for="request">برای چه کاری کمک می‌خواهید؟</label>
+          <textarea id="request" placeholder="مثال: برای ایده جدیدم یک وب‌سایت ساده طراحی کن..."></textarea>
+          <label class="field-label" for="language" style="margin-top:14px">زبان پاسخ</label>
+          <select id="language">
+            <option value="Persian (Farsi)">فارسی</option>
+            <option value="English">انگلیسی</option>
+            <option value="Turkish">ترکی استانبولی</option>
+            <option value="Azerbaijani">ترکی آذربایجانی</option>
+          </select>
+          <div class="form-row">
+            <span class="hint">این نسخه مستقل، بدون حساب کاربری یا کلید API کار می‌کند.</span>
+            <button class="button primary" id="generate">ساخت دستور آماده ↙</button>
+          </div>
+          <div class="result-wrap" id="resultWrap" aria-live="polite">
+            <div class="result-head"><strong id="resultTitle">دستور آماده شما</strong><button class="button small" id="copyResult">کپی متن</button></div>
+            <div class="result-content" id="result"></div>
+          </div>
+          <div class="notice">محدودیت نسخه نمایشی: این فایل HTML هنوز به مدل زنده هوش مصنوعی وصل نیست. فعلاً یک دستور ساختاریافته آماده می‌کند تا آن را در دستیار هوش مصنوعی دلخواهتان کپی کنید. برای دریافت پاسخ واقعی باید اتصال امن به سرور و API اضافه شود.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="about">
+      <div class="section-heading"><div><h2>سادگی در طراحی</h2><p>با یک ایده روشن شروع کنید و قدم‌به‌قدم آن را بهتر کنید.</p></div></div>
+      <div class="steps">
+        <article class="step"><div class="step-number">۰۱ / توضیح</div><h3>هدفتان را بیان کنید</h3><p>بنویسید چه چیزی می‌خواهید یاد بگیرید، بسازید، حل کنید یا خلق کنید.</p></article>
+        <article class="step"><div class="step-number">۰۲ / سازمان‌دهی</div><h3>درخواست را شکل دهید</h3><p>ولتـرون درخواست شما را به یک دستور روشن و قابل استفاده تبدیل می‌کند.</p></article>
+        <article class="step"><div class="step-number">۰۳ / خلق</div><h3>قدم بعدی را بردارید</h3><p>دستور آماده را کپی کنید و در دستیار هوش مصنوعی دلخواهتان به کار ببرید.</p></article>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="cta">
+        <div class="eyebrow">ایده شما از اینجا شروع می‌شود</div>
+        <h2>چیزی فراتر از انتظار بسازید.</h2>
+        <p>ولتـرون طوری طراحی شده که از یک فضای کاری متمرکز، به مجموعه‌ای گسترده از ابزارهای هوش مصنوعی تبدیل شود.</p>
+        <a class="button primary" href="#workspace">ورود به فضای کار ↙</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand" href="#home"><span class="brand-mark">V</span><span>VELTRON<small>فناوری هوشمند</small></span></a>
+        <span>هوش مصنوعی · فناوری · نوآوری</span>
+        <span class="creator">ساخته شده توسط Mohammad Sadra Asadi</span>
+      </div>
+      <div class="footer-bottom">© <span id="year"></span> ولترون. تمامی حقوق محفوظ است. <span style="opacity:.65">وب‌سایت مفهومی — پروژه مستقل.</span></div>
+    </div>
+  </footer>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    const modes = {
+      assistant: {
+        title: "دستیار هوش مصنوعی",
+        subtitle: "همراه هوشمند شما برای کارهای گوناگون",
+        label: "برای چه کاری کمک می‌خواهید؟",
+        placeholder: "مثال: برای ایده جدیدم یک وب‌سایت ساده طراحی کن...",
+        instruction: "مثل یک دستیار هوش مصنوعی مفید و دقیق عمل کن. کار را به مراحل روشن تقسیم کن، فرض‌ها را توضیح بده و پاسخی کاربردی ارائه کن."
+      },
+      writer: {
+        title: "نویسنده هوشمند",
+        subtitle: "نوشتن، بازنویسی و ویرایش متن",
+        label: "می‌خواهید چه متنی بنویسید؟",
+        placeholder: "مثال: یک معرفی دوستانه برای وب‌سایت فناوری من بنویس...",
+        instruction: "مثل یک نویسنده حرفه‌ای عمل کن. متنی روشن، اصیل و ویرایش‌شده متناسب با هدف کاربر تولید کن. فقط وقتی لازم است درباره جزئیات جاافتاده سؤال بپرس."
+      },
+      code: {
+        title: "دستیار برنامه‌نویسی",
+        subtitle: "برنامه‌ریزی، درک و بهبود کد",
+        label: "می‌خواهید چه چیزی بسازید یا اصلاح کنید؟",
+        placeholder: "مثال: توضیح بده منوی واکنش‌گرای وب‌سایت چطور کار می‌کند...",
+        instruction: "مثل یک مربی صبور برنامه‌نویسی عمل کن. راه‌حل را مرحله‌به‌مرحله توضیح بده، در صورت نیاز کد خوانا ارائه کن و نکات مهم امنیتی را یادآوری کن."
+      },
+      ideas: {
+        title: "ایده‌پرداز هوشمند",
+        subtitle: "کشف نام‌ها، ایده‌ها و مسیرهای خلاقانه",
+        label: "درباره چه ایده‌ای فکر کنیم؟",
+        placeholder: "مثال: برای یک برنامه هوش مصنوعی اسم‌های لوکس پیشنهاد بده...",
+        instruction: "مثل یک مشاور خلاقیت و راهبرد عمل کن. ایده‌های متفاوت پیشنهاد بده، دلیل هرکدام را کوتاه توضیح بده و یک قدم عملی بعدی معرفی کن."
+      }
+    };
+    let currentMode = "assistant";
+    const requestEl = document.getElementById("request");
+    const resultWrap = document.getElementById("resultWrap");
+    const resultEl = document.getElementById("result");
+    const toastEl = document.getElementById("toast");
+
+    function showToast(message) {
+      toastEl.textContent = message;
+      toastEl.classList.add("show");
+      window.setTimeout(() => toastEl.classList.remove("show"), 2200);
+    }
+    document.querySelectorAll(".tool-card").forEach(card => {
+      card.addEventListener("click", () => {
+        currentMode = card.dataset.mode;
+        document.querySelectorAll(".tool-card").forEach(item => item.classList.toggle("active", item === card));
+        const mode = modes[currentMode];
+        document.getElementById("workspaceTitle").childNodes[0].textContent = mode.title;
+        document.getElementById("workspaceSubtitle").textContent = mode.subtitle;
+        document.querySelector('label[for="request"]').textContent = mode.label;
+        requestEl.placeholder = mode.placeholder;
+        resultWrap.classList.remove("show");
+        document.getElementById("workspace").scrollIntoView({behavior:"smooth",block:"start"});
+      });
+    });
+
+    document.getElementById("generate").addEventListener("click", () => {
+      const userRequest = requestEl.value.trim();
+      if (!userRequest) {
+        requestEl.focus();
+        showToast("لطفاً ابتدا درخواستتان را بنویسید.");
+        return;
+      }
+      const language = document.getElementById("language").value;
+      const mode = modes[currentMode];
+      const prepared = `${mode.instruction}\n\nدرخواست کاربر:\n${userRequest}\n\nلطفاً به این زبان پاسخ بده: ${language}.\n\nپاسخ را روشن، منظم و کاربردی ارائه کن.`;
+      resultEl.textContent = prepared;
+      resultWrap.classList.add("show");
+      document.getElementById("resultTitle").textContent = "دستور آماده — " + mode.title;
+      resultWrap.scrollIntoView({behavior:"smooth",block:"nearest"});
+    });
+
+    document.getElementById("copyResult").addEventListener("click", async () => {
+      const text = resultEl.textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast("دستور آماده کپی شد.");
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(resultEl);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        showToast("متن انتخاب شد؛ آن را کپی کنید.");
+      }
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
